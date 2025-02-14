@@ -1,0 +1,9 @@
+{
+	"n_users": 27948, 
+	"n_items": 15440, 
+	"behaviors": ["view", "collect", "cart", "buy"],
+	"n_view": 1489997, 
+	"n_cart": 1914, 
+	"n_collect": 13947, 
+	"n_buy": 1307
+}
