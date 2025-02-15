@@ -9,6 +9,6 @@ def parse_args():
     parser.add_argument('--beta', type=float, default=0.9, help='beta (strength of cascading alignment)')
     parser.add_argument('--tolerance', type=float, default=1e-4, help='tolerance of residual')
     parser.add_argument('--max_iter', type=int, default=100, help='maximum iteration number of power iteration')
-    parser.add_argument('--batch_size', type=int, default=1024, help='batch size')
+    parser.add_argument('--batch_size', type=int, default=1024, help='batch size of queries')
     parser.add_argument('--ks', type=list, default=[10, 30, 50, 100, 200], help='top-k list for evaluation')
     return parser.parse_args()
