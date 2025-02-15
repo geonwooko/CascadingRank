@@ -42,8 +42,6 @@ def sparse_diag(input, non_zero=True):
         values = torch.zeros(N, device=input.device)
         ind, val = input.indices(), input._values()
         values[ind] = val
-    if non_zero:
-        values[values==0] += 1e-4
     arr = torch.arange(N, device=values.device)
     indices = torch.stack([arr, arr])
     return torch.sparse_coo_tensor(indices, values, (N, N))

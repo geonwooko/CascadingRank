@@ -9,6 +9,8 @@ class CascadingRank:
         self.datas = datas
         self.n_users, self.n_items = datas['n_users'], datas['n_items']
         self.alpha, self.beta = args.alpha, args.beta
+        if self.alpha + self.beta > 1:
+            raise ValueError('alpha + beta should not be greater than 1')
         self.tolerance, self.max_iter = args.tolerance, args.max_iter
         self.batch_size = args.batch_size
         self.device = args.device

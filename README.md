@@ -25,8 +25,12 @@ The statistics of datasets used in CascadingRank are summarized as follows.
 We gathered Taobao dataset from [MBCGCN](https://github.com/SS-00-SS/MBCGCN), Tenrec datasets from [tenrec](https://github.com/yuangh-x/2022-NIPS-Tenrec), and Tmall datasets from [CRGCN](https://github.com/MingshiYan/CRGCN).
 
 ## Usage
+
+### Overview
+This code computes the ranking scores on items for all users, where the ranking score matrix has a dimension of |U| $\times$ |I|\, with each row representing a user's score on all items.
+
 ### Run CascadingRank
-You can run our model with the best hyperparameters for each dataset by typing the following command in your terminal:
+You can run our model with the best hyperparameters for HR@10 on each dataset by typing the following command in your terminal:
 
 #### Run CascadingRank in the `Taobao` dataset
 ```python
@@ -66,7 +70,7 @@ The test performance of CascadingRank for each dataset is as follows:
 
 All experiments are conducted on RTX 4090 (24GB) with cuda version 11.8
 
-### Validated hyperparameters of MuLe
+### Validated hyperparameters of CascadingRank
 We provide the validated hyperparameters of CascadingRank for each dataset to ensure reproducibility.
 
 <table border="1" cellspacing="0" cellpadding="5">
@@ -124,17 +128,19 @@ We provide the validated hyperparameters of CascadingRank for each dataset to en
 
 
 ## Detailed Options
-You can train and evaluate your own dataset with custom hyperparameters as follows:
-|**Option**|**Description**|**Default**|
-|:-:|:-:|:-:|
-|`dataset`|dataset name|taobao|
-|`device`|training device|cuda|
-|`data_dir`| data directory path|./data|
-|`alpha`|alpha (strength of query fitting)|0.0|
-|`beta`|beta (strength of cascading alignment)|0.9|
-|`tolerance`|tolerance of residual|1e-4|
-|`max_iter`|maximum iteration number of power iteration|100|
-|`batch_size`|batch size of queries| 1024|
-|`ks`|[10, 30, 50, 100, 200]|top-k list for evaluation|
+You can run CascadingRank with custom hyperparameters as follows:
+|**Option**|**Description**|**Default**|**Options**|
+|:-:|:-:|:-:|:-:|
+|`dataset`|Dataset name|taobao|[taobao, tmall, tenrec]|
+|`device`|Computation device|cuda|[cpu, cuda]|
+|`data_dir`| Data directory path|./data||
+|`alpha`|Strength of query fitting|0.0|range in [0, 1]|
+|`beta`|Strength of cascading alignment|0.9|range in [0, 1]|
+|`tolerance`|Convergence threshold ($\epsilon$) for residual|1e-4||
+|`max_iter`|Maximum number of iterations|100||
+|`batch_size`|Batch size| 1024||
+|`ks`|Parameter for top-k recommendation|[10, 30, 50, 100, 200]||
+
+Note that `alpha` + `beta` should not be greater than one.
 
 
