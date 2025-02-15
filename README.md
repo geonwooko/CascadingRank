@@ -134,7 +134,7 @@ You can train and evaluate your own dataset with custom hyperparameters as follo
 |`beta`|beta (strength of cascading alignment)|0.9|
 |`tolerance`|tolerance of residual|1e-4|
 |`max_iter`|maximum iteration number of power iteration|100|
-|`batch_size`|batch size| 1024|
+|`batch_size`|batch size of queries| 1024|
 |`ks`|[10, 30, 50, 100, 200]|top-k list for evaluation|
 
 
