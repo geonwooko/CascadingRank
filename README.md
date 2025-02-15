@@ -32,21 +32,27 @@ You can run our model with the best hyperparameters for each dataset by typing t
 ```python
 python ./src/main.py --dataset taobao \
                      --alpha 0.0 \
-                     --beta 0.9 
+                     --beta 0.9 \
+                     --tolerance 1e-4 \
+                     --batch_size 1024
 ```
 
 #### Run CascadingRank in the `Tenrec` dataset
 ```python
 python ./src/main.py --dataset tenrec \
                      --alpha 0.3 \
-                     --beta 0.6 
+                     --beta 0.6 \
+                     --tolerance 1e-4 \
+                     --batch_size 1024
 ```
 
 #### Run CascadingRank in the `Tmall` dataset
 ```python
 python ./src/main.py --dataset tmall \
                      --alpha 0.7 \
-                     --beta 0.2 
+                     --beta 0.2 \
+                     --tolerance 1e-4 \
+                     --batch_size 1024
 ```
 
 
