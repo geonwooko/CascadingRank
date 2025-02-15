@@ -8,14 +8,14 @@ from cascadingrank import CascadingRank
 def main(args):
     log_param(args)
     
-    logger.info('Loading data...')
+    logger.info(f'Loading {args.dataset} dataset')
     data = load_data(args)
     
     logger.info('Running CascadingRank')
     model = CascadingRank(args, data)
     ranking_scores, converged_iterations = model.run()
     
-    logger.info('Evaluating...')
+    logger.info('Evaluating ranking scores')
     hr, ndcg = evaluate(ranking_scores, data, args)
     
     for k in args.ks:

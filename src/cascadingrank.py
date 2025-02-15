@@ -4,6 +4,7 @@ from tqdm.autonotebook import tqdm
 import numpy as np
 
 class CascadingRank:
+    '''Personalized Ranking with Cascading Behavior Graphs'''
     def __init__(self, args, datas):
         self.datas = datas
         self.n_users, self.n_items = datas['n_users'], datas['n_items']

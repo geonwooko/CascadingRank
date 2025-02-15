@@ -112,8 +112,9 @@ We provide the validated hyperparameters of CascadingRank for each dataset to en
 
 
 **Description of each hyperparameter**
-* $\alpha$: learning rate of the Adam optimizer (`--alpha`)
-* $\beta$: weight decay for L2-regularization (`--beta`)
+* $\alpha$: strength of query fitting (`--alpha`)
+* $\beta$: strength of cascading alignment (`--beta`)
+* $\gamma$: strength of ranking score smoothing, where $\gamma = 1-\alpha-\beta$
 
 
 ## Detailed Options
@@ -121,11 +122,13 @@ You can train and evaluate your own dataset with custom hyperparameters as follo
 |**Option**|**Description**|**Default**|
 |:-:|:-:|:-:|
 |`dataset`|dataset name|taobao|
-|`alpha`|dataset name|taobao|
-|`beta`|data directory path|./data|
-
-
-## Citation
-Please cite the paper if you use this code in your own work:
+|`device`|training device|cuda|
+|`data_dir`| data directory path|./data|
+|`alpha`|alpha (strength of query fitting)|0.0|
+|`beta`|beta (strength of cascading alignment)|0.9|
+|`tolerance`|tolerance of residual|1e-4|
+|`max_iter`|maximum iteration number of power iteration|100|
+|`batch_size`|batch size| 1024|
+|`ks`|[10, 30, 50, 100, 200]|top-k list for evaluation|
 
 
