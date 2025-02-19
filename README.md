@@ -1,6 +1,6 @@
 # CascadingRank
 This is the official code for **CascadingRank** (Personalized Ranking on Cascading Behavior Graphs for
-Accurate Multi-Behavior Recommendation), submitted to Information Sciences 2025.
+Accurate Multi-Behavior Recommendation), submitted to Information Sciences 2025.  
 You can find the ArXiv version of the paper here: [https://arxiv.org/abs/2502.11335](https://arxiv.org/abs/2502.11335).
 ## Prerequisties
 You can install the required packages with a conda environment by typing the following command in your terminal:
